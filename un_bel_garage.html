@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Esercizio oggetto: Un bel garage</title>
+  </head>
+
+
+
+  <body>
+
+    <div class="container my-5">
+
+        <div class="row">
+
+            <!--Input per aggiungere automobili al garage-->
+            <div class="col-6 col-md-4">
+                <h3>Aggiungi automobile</h3>
+                <input class="form-control mb-3" placeholder="Brand" type="text" id="brand">
+                <input class="form-control mb-3" placeholder="Nome automobile" type="text" id="nome">
+                <button type="submit" class="btn btn-primary" onclick="aggiungiAutomobile()">Aggiungi al garage</button>
+            </div>
+
+            <!--Input per cercare i modelli di automobili nel garage-->
+            <div class="col-6 col-md-4">
+                <h3>Cerca modello di un brand</h3>
+                <input class="form-control mb-3" placeholder="Brand" type="text" id="cerca_brand">
+                <button type="submit" class="btn btn-primary" onclick="cercaModello()">Cerca modello</button>
+            </div>
+
+            <div class="col-6 col-md-4">
+                <h3>Modelli disponibili</h3>
+                <pre>...</pre>
+            </div>
+
+        </div>
+    
+        <script>
+
+            //https://github.com/AlbertoOlla/esercizi-di-programmazione-javascript
+
+            /*
+            Un bel garage
+            Scrivi un programma per la gestione di un garage.
+            Definisci un oggetto che rappresenti un automobile, dovrà contenere almeno marca del veicolo e nome del modello.
+            Scrivi una funzione che prenda in input una marca e stampi i modelli presenti nel garage di quella stessa marca.
+
+            Consigli:
+            Puoi usare un array come base per salvare le automobili.
+            */
+
+            let arrBrand = ["NISSAN", "NISSAN"];
+            let arrNome = ["JUKE", "QUASQUAI"];
+
+            let garage = [];
+            let i = 0;
+
+            
+            function aggiungiAutomobile(){
+                
+                //Push il nome del brand dentro l'array "arrBrand"
+                let x = document.getElementById("brand").value;
+                arrBrand.push(x.toUpperCase());
+                console.log(arrBrand);
+
+                //Push il nome dell'automobile dentro l'array "arrNome"
+                let y = document.getElementById("nome").value;
+                arrNome.push(y.toUpperCase());
+                console.log(arrNome);
+
+                //Oggetto automobile - Notazione a costruttore
+                function automobile(x,y){
+                this.brand = x;
+                this.nome = y;
+                }
+
+                //Istanza oggetto "automobile"
+                let nuovaAutomobile = new automobile(x,y);
+                console.log(nuovaAutomobile.brand);
+                console.log(nuovaAutomobile.nome);
+            }
+
+            
+            
+
+            
+
+
+
+
+        </script>
+
+    </div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
