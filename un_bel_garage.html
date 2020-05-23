@@ -36,7 +36,7 @@
 
             <div class="col-6 col-md-4">
                 <h3>Modelli disponibili</h3>
-                <pre>...</pre>
+                <ul id="myList"></ul>
             </div>
 
         </div>
@@ -55,23 +55,23 @@
             Puoi usare un array come base per salvare le automobili.
             */
 
-            let arrBrand = ["NISSAN", "NISSAN"];
-            let arrNome = ["JUKE", "QUASQUAI"];
+            let arrBrand = ["NISSAN", "FIAT", "NISSAN", "NISSAN"];
+            let arrNome = ["JUKE", "500", "QUASQUAI", "XTRAIL"];
 
             let garage = [];
-            let i = 0;
-
             
+
+
             function aggiungiAutomobile(){
                 
                 //Push il nome del brand dentro l'array "arrBrand"
-                let x = document.getElementById("brand").value;
-                arrBrand.push(x.toUpperCase());
+                let x = document.getElementById("brand").value.toUpperCase();
+                arrBrand.push(x);
                 console.log(arrBrand);
 
                 //Push il nome dell'automobile dentro l'array "arrNome"
-                let y = document.getElementById("nome").value;
-                arrNome.push(y.toUpperCase());
+                let y = document.getElementById("nome").value.toUpperCase();
+                arrNome.push(y);
                 console.log(arrNome);
 
                 //Oggetto automobile - Notazione a costruttore
@@ -84,6 +84,38 @@
                 let nuovaAutomobile = new automobile(x,y);
                 console.log(nuovaAutomobile.brand);
                 console.log(nuovaAutomobile.nome);
+
+            }
+
+
+            function cercaModello(){
+
+                let z = document.getElementById("cerca_brand").value.toUpperCase();
+                console.log(z);
+
+                let i = 0;
+                while (i < arrBrand.length){
+
+                    if(z === arrBrand[i]){
+                        console.log(i);
+
+                        let node = document.createElement("LI");     
+                        //let textnode = document.getElementById("myList").textContent = arrNome[i];
+                        let textnode = document.createTextNode(arrNome[i]);
+                        node.appendChild(textnode);
+                        document.getElementById("myList").appendChild(node);
+                        
+                    }
+
+                    i++;
+                }
+
+                //console.log(arrBrand[1]);
+
+
+
+                //document.getElementById("lista").innerHTML = lista_modelli;
+
             }
 
             
