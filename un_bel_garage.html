@@ -17,25 +17,34 @@
 
     <div class="container my-5">
 
+        <h1>Esercizio: Un bel garage</h1>
+        <hr class="mb-5">
+
         <div class="row">
 
             <!--Input per aggiungere automobili al garage-->
-            <div class="col-6 col-md-4">
-                <h3>Aggiungi automobile</h3>
-                <input class="form-control mb-3" placeholder="Brand" type="text" id="brand">
-                <input class="form-control mb-3" placeholder="Nome automobile" type="text" id="nome">
+            <div class="col-6 col-md-4 card p-3 bg-light">
+                <h3 class="mb-3">Aggiungi automobile</h3>
+                <input class="form-control mb-3" placeholder="(Esempio) Nissan" type="text" id="brand">
+                <input class="form-control mb-3" placeholder="(Esempio) Juke" type="text" id="nome">
                 <button type="submit" class="btn btn-primary" onclick="aggiungiAutomobile()">Aggiungi al garage</button>
+
+                <div class="card p-3 mt-3">
+                    <h4>Brand disponibili</h4>
+                    <p id="garage">NISSAN,FIAT</p>
+                </div>
             </div>
+            
 
             <!--Input per cercare i modelli di automobili nel garage-->
             <div class="col-6 col-md-4">
-                <h3>Cerca modello di un brand</h3>
-                <input class="form-control mb-3" placeholder="Brand" type="text" id="cerca_brand">
+                <h3 class="mb-3">Cerca modello di un brand</h3>
+                <input class="form-control mb-3" placeholder="(Esempio) Fiat" type="text" id="cerca_brand">
                 <button type="submit" class="btn btn-primary" onclick="cercaModello()">Cerca modello</button>
             </div>
 
             <div class="col-6 col-md-4">
-                <h3>Modelli disponibili</h3>
+                <h3 class="mb-3">Modelli disponibili</h3>
                 <ul id="myList"></ul>
             </div>
 
@@ -55,13 +64,11 @@
             Puoi usare un array come base per salvare le automobili.
             */
 
+            //Default brands
             let arrBrand = ["NISSAN", "FIAT", "NISSAN", "NISSAN"];
+            //Default names
             let arrNome = ["JUKE", "500", "QUASQUAI", "XTRAIL"];
-
-            let garage = [];
             
-
-
             function aggiungiAutomobile(){
                 
                 //Push il nome del brand dentro l'array "arrBrand"
@@ -85,8 +92,11 @@
                 console.log(nuovaAutomobile.brand);
                 console.log(nuovaAutomobile.nome);
 
-            }
+                //stampa gli elementi di un array senza ripetizioni
+                let uniqueItems = [...new Set(arrBrand)];
+                document.getElementById("garage").innerHTML = uniqueItems;
 
+            }
 
             function cercaModello(){
 
@@ -101,7 +111,7 @@
 
                         let node = document.createElement("LI");     
                         //let textnode = document.getElementById("myList").textContent = arrNome[i];
-                        let textnode = document.createTextNode(arrNome[i]);
+                        let textnode = document.createTextNode(arrBrand[i] + ': ' + arrNome[i]);
                         node.appendChild(textnode);
                         document.getElementById("myList").appendChild(node);
                         
@@ -110,39 +120,14 @@
                     i++;
                 }
 
-                //console.log(arrBrand[1]);
-
-
-
-                //document.getElementById("lista").innerHTML = lista_modelli;
+                let hr_node = document.createElement("HR");
+                document.getElementById("myList").appendChild(hr_node);
 
             }
-
-            
-            
-
-            
-
-
-
 
         </script>
 
     </div>
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
