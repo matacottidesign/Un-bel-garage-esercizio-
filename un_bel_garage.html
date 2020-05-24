@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <title>Esercizio oggetto: Un bel garage</title>
+
+    <style>
+        #add{color: white; max-height: 310px; overflow-y: scroll;}
+        #add ul{font-family: 'Courier New', Courier, monospace;}
+        #myList{font-family: 'Courier New', Courier, monospace; max-height: 630px; overflow-y: scroll;}
+        ul{margin-bottom: 0;}
+    </style>
   </head>
 
 
@@ -32,6 +39,10 @@
                 <div class="card p-3 mt-3">
                     <h4>Brand disponibili</h4>
                     <p id="garage">NISSAN,FIAT</p>
+                </div>
+
+                <div id="add" class="card bg-secondary p-3 mt-3">
+                    <h4>Storico aggiunte</h4>
                 </div>
             </div>
             
@@ -96,6 +107,23 @@
                 let uniqueItems = [...new Set(arrBrand)];
                 document.getElementById("garage").innerHTML = uniqueItems;
 
+                //Box "Hai aggiunto"
+                    //h4
+                    /* let h4_haiaggiunto = document.createElement("H4");
+                    let h4_textnode = document.createTextNode("Hai aggiunto");
+                    h4_haiaggiunto.appendChild(h4_textnode);
+                    document.getElementById("add").appendChild(h4_haiaggiunto); */
+
+                    //ul
+                    let ul = document.createElement("UL");
+                    document.getElementById("add").appendChild(ul);
+
+                    //li
+                    let li = document.createElement("LI");
+                    let li_textnode_objProperty = document.createTextNode(nuovaAutomobile.brand + ': ' + nuovaAutomobile.nome);
+                    li.appendChild(li_textnode_objProperty);
+                    document.getElementById("add").lastChild.appendChild(li);
+
             }
 
             function cercaModello(){
@@ -110,7 +138,6 @@
                         console.log(i);
 
                         let node = document.createElement("LI");     
-                        //let textnode = document.getElementById("myList").textContent = arrNome[i];
                         let textnode = document.createTextNode(arrBrand[i] + ': ' + arrNome[i]);
                         node.appendChild(textnode);
                         document.getElementById("myList").appendChild(node);
