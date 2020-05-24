@@ -18,8 +18,7 @@
     </style>
   </head>
 
-
-
+  
   <body>
 
     <div class="container my-5">
@@ -107,22 +106,15 @@
                 let uniqueItems = [...new Set(arrBrand)];
                 document.getElementById("garage").innerHTML = uniqueItems;
 
-                //Box "Hai aggiunto"
-                    //h4
-                    /* let h4_haiaggiunto = document.createElement("H4");
-                    let h4_textnode = document.createTextNode("Hai aggiunto");
-                    h4_haiaggiunto.appendChild(h4_textnode);
-                    document.getElementById("add").appendChild(h4_haiaggiunto); */
+                //ul
+                let ul = document.createElement("UL");
+                document.getElementById("add").appendChild(ul);
 
-                    //ul
-                    let ul = document.createElement("UL");
-                    document.getElementById("add").appendChild(ul);
-
-                    //li
-                    let li = document.createElement("LI");
-                    let li_textnode_objProperty = document.createTextNode(nuovaAutomobile.brand + ': ' + nuovaAutomobile.nome);
-                    li.appendChild(li_textnode_objProperty);
-                    document.getElementById("add").lastChild.appendChild(li);
+                //li
+                let li = document.createElement("LI");
+                let li_textnode_objProperty = document.createTextNode(nuovaAutomobile.brand + ': ' + nuovaAutomobile.nome);
+                li.appendChild(li_textnode_objProperty);
+                document.getElementById("add").lastChild.appendChild(li);
 
             }
 
